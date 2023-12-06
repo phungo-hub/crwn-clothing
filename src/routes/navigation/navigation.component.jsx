@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Outlet, Link } from "react-router-dom";
 
-import { ReactComponent as CrwnLog } from "../../../assets/crown.svg";
+import { ReactComponent as CrwnLog } from "../../assets/crown.svg"
 
 import "./navigation.styles.scss";
 
