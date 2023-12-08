@@ -30,6 +30,7 @@ const SignUpForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -44,6 +45,7 @@ const SignUpForm = () => {
         password
       );
       await createUserDocumentFromAuth(user, { displayName });
+
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
@@ -95,9 +97,7 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        <Button type="submit">
-          Sign Up
-        </Button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </div>
   );

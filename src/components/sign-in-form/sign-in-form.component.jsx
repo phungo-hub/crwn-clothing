@@ -4,10 +4,7 @@ import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import { signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
 
-import {
-  signInWithGooglePopup,
-  createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase.utils";
+import { signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
 
 import "./sign-in-form.styles.scss";
 
@@ -29,7 +26,6 @@ const SignInForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  // eslint-disable-next-line no-unused-vars
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -38,7 +34,7 @@ const SignInForm = () => {
         email,
         password
       );
-      console.log(response);
+
       resetFormFields();
     } catch (error) {
       switch (error) {
@@ -59,7 +55,6 @@ const SignInForm = () => {
 
   const signInGoogleUser = async () => {
     const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
   };
 
   return (
