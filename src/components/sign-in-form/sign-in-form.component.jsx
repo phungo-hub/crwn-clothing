@@ -54,7 +54,23 @@ const SignInForm = () => {
   };
 
   const signInGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
+    try {
+      await signInWithGooglePopup();
+    } catch (error) {
+      switch (error) {
+        case "auth/wrong-password":
+          alert("incorect password for email");
+          break;
+        case "auth/user-not-found":
+          alert("no user associated with this email");
+          break;
+        case "auth/cancelled-popup-request":
+          alert("pop-up cancelled");
+          break;
+        default:
+          console.log(error);
+      }
+    }
   };
 
   return (
